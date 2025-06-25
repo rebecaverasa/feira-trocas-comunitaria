@@ -6,3 +6,53 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       String     @id @default(uuid())
+  name     String
+  email    String     @unique
+  password String
+  items    Item[]     @relation("UserItems")
+  proposal Proposal[] @relation("ProposalsMade")
+
+  @@map("users")
+}
+
+model Item {
+  id                String     @id @default(uuid())
+  name              String
+  description       String
+  category          String
+  imageUrl          String?
+  ownerId           String
+  owner             User       @relation("UserItems", fields: [ownerId], references: [id])
+  proposalsOffered  Proposal[] @relation("ItemOffered")
+  proposalsReceived Proposal[] @relation("DesiredItem")
+
+  @@map("items")
+}
+
+model Proposal {
+  id             Int      @id @default(autoincrement())
+  itemOfferedId  String
+  desiredItemId  String
+  proponentId    String
+  status         Status   @default(PENDING)
+
+  itemOffered    Item     @relation("ItemOffered", fields: [itemOfferedId], references: [id])
+  desiredItem    Item     @relation("DesiredItem", fields: [desiredItemId], references: [id])
+  proponent      User     @relation("ProposalsMade", fields: [proponentId], references: [id])
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("proposals")
+}
+
+enum Status {
+  PENDING
+  ACCEPTED
+  REFUSED
+
+  @@map("status")
+}

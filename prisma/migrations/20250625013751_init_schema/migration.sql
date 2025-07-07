@@ -4,7 +4,7 @@ CREATE TYPE "status" AS ENUM ('PENDING', 'ACCEPTED', 'REFUSED');
 -- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
+    "name" VARCHAR(100) TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
 
@@ -14,7 +14,7 @@ CREATE TABLE "users" (
 -- CreateTable
 CREATE TABLE "items" (
     "id" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
+    "name" VARCHAR(100) TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "category" TEXT NOT NULL,
     "imageUrl" TEXT,

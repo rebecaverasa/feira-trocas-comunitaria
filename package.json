@@ -2,32 +2,33 @@
     "name": "feira-trocas-comunitaria",
     "version": "1.0.0",
     "description": "Projeto de uma aplicação web para facilitar a troca de itens entre moradores de uma comunidade.",
+    "keywords": [],
+    "homepage": "https://github.com/rebecaverasa/feira-trocas-comunitaria#readme",
+    "bugs": {
+        "url": "https://github.com/rebecaverasa/feira-trocas-comunitaria/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rebecaverasa/feira-trocas-comunitaria.git"
+    },
+    "license": "ISC",
+    "author": "Db Teste",
+    "type": "module",
     "main": "src/app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon src/app.js",
         "dev": "nodemon src/app.js"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/rebecaverasa/feira-trocas-comunitaria.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "type": "module",
-    "bugs": {
-        "url": "https://github.com/rebecaverasa/feira-trocas-comunitaria/issues"
-    },
-    "homepage": "https://github.com/rebecaverasa/feira-trocas-comunitaria#readme",
     "dependencies": {
-        "@prisma/client": "^6.10.1",
+        "@prisma/client": "^6.11.1",
         "cors": "^2.8.5",
-        "dotenv": "^16.5.0",
-        "express": "^5.1.0"
+        "dotenv": "^16.6.1",
+        "express": "^5.1.0",
+        "pg": "^8.16.3"
     },
     "devDependencies": {
         "nodemon": "^3.1.10",
-        "prisma": "^6.10.1"
+        "prisma": "^6.11.1"
     }
 }
